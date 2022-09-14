@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AresFramework.Plugins.Thieving", "AresFramework.Plugins.Thieving.csproj", "{1E4ACE70-6291-49DF-90B1-C5911B4DD591}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AresFramework.Plugin.Module", "..\AresFramework\AresFramework.Plugin.Module\AresFramework.Plugin.Module.csproj", "{94EB5740-A14A-4AAD-B0E2-24019E0DBCED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AresFramework.ServiceDependencies", "..\AresFramework\AresFramework.ServiceDependencies\AresFramework.ServiceDependencies.csproj", "{FA71AEFC-6ABE-4AAF-A04A-8C12B1C96136}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AresFramework.Plugin.Loaders", "..\AresFramework\AresFramework.Plugin.Loaders\AresFramework.Plugin.Loaders.csproj", "{921EA727-AF15-49FB-BEF9-93FA97C2C677}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E4ACE70-6291-49DF-90B1-C5911B4DD591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E4ACE70-6291-49DF-90B1-C5911B4DD591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E4ACE70-6291-49DF-90B1-C5911B4DD591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E4ACE70-6291-49DF-90B1-C5911B4DD591}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94EB5740-A14A-4AAD-B0E2-24019E0DBCED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94EB5740-A14A-4AAD-B0E2-24019E0DBCED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94EB5740-A14A-4AAD-B0E2-24019E0DBCED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94EB5740-A14A-4AAD-B0E2-24019E0DBCED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA71AEFC-6ABE-4AAF-A04A-8C12B1C96136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA71AEFC-6ABE-4AAF-A04A-8C12B1C96136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA71AEFC-6ABE-4AAF-A04A-8C12B1C96136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA71AEFC-6ABE-4AAF-A04A-8C12B1C96136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921EA727-AF15-49FB-BEF9-93FA97C2C677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921EA727-AF15-49FB-BEF9-93FA97C2C677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921EA727-AF15-49FB-BEF9-93FA97C2C677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921EA727-AF15-49FB-BEF9-93FA97C2C677}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

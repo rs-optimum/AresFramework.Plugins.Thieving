@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AresFramework\AresFramework.Plugin.Loaders\AresFramework.Plugin.Loaders.csproj">
+            <ExcludeAssets>runtime</ExcludeAssets>
+            <Private>false</Private>
+        </ProjectReference>
+        <ProjectReference Include="..\AresFramework\AresFramework.Plugin.Module\AresFramework.Plugin.Module.csproj">
+            <ExcludeAssets>runtime</ExcludeAssets>
+            <Private>false</Private>
+        </ProjectReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="JetBrains.Annotations">
+        <HintPath>..\..\..\.nuget\packages\jetbrains.annotations\2022.1.0\lib\netstandard2.0\JetBrains.Annotations.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+    
+    
+    <ItemGroup>
+        <EmbeddedResource Include="Resource/pickpocket.json">
+            
+        </EmbeddedResource>
+    </ItemGroup>
+
+</Project>
