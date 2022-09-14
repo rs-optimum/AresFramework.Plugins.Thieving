@@ -21,16 +21,14 @@
         <HintPath>..\..\..\.nuget\packages\jetbrains.annotations\2022.1.0\lib\netstandard2.0\JetBrains.Annotations.dll</HintPath>
       </Reference>
     </ItemGroup>
-
+    
     <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+      <PackageReference Include="Polly" Version="7.2.3" />
     </ItemGroup>
     
-    
     <ItemGroup>
-        <EmbeddedResource Include="Resource/pickpocket.json">
-            
-        </EmbeddedResource>
+        <EmbeddedResource Include="Resource/pickpocket.json" />
     </ItemGroup>
 
 </Project>
