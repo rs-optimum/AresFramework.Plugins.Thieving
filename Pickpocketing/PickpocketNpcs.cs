@@ -8,6 +8,7 @@ using AresFramework.Model.Entity;
 using AresFramework.Model.Entity.Skills;
 using Newtonsoft.Json;
 using NLog;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace AresFramework.Plugins.Thieving.Pickpocketing;
 
@@ -51,38 +52,46 @@ public static class PickpocketNpcs
         
         return true;
     }
-
+    
     public static void MapPickpocketNpc(IPickpocketNpc pickpocketNpc)
     {
-        foreach (var npcs in pickpocketNpc.ApplicableNpcs())
+        foreach (var npc in pickpocketNpc.ApplicableNpcs())
         {
-            if (PickpocketingNpcs.ContainsKey(npcs))
+            if (PickpocketingNpcs.ContainsKey(npc))
             {
-                Log.Warn($"The pickpocketable npc id {npcs} already exists");
+                Log.Warn($"The id {npc} has already been mapped!");
                 continue;
             }
-            Log.Debug($"Mapped the following id {npcs} to the following class {pickpocketNpc.GetType().Name}");
-            PickpocketingNpcs.Add(npcs, pickpocketNpc);
+            Log.Debug($"Mapped pickpocket npc id {npc} to {pickpocketNpc.GetType().FullName}");
+            PickpocketingNpcs.Add(npc, pickpocketNpc);
         }
     }
     
     public static void LoadNpcs()
     {
-        var readAll = Encoding.UTF8.GetString(ReadResource("pickpocket.json"));
-        
-        var npcs = JsonConvert.DeserializeObject<List<PickpocketData>>(readAll);
-        foreach (var npc in npcs)
+        try
         {
-            var defaultJsonNpc = new DefaultPickpocketNpc(npc.levelRequired, npc.experience, npc.npcs, npc.rewards, npc.stunTimer,
-                new Range(npc.stunDamage.min, npc.stunDamage.max));
-            MapPickpocketNpc(defaultJsonNpc);
+            var readAll = Encoding.UTF8.GetString(ReadResource("pickpocket.json"));
+            var npcs = JsonConvert.DeserializeObject<List<PickpocketData>>(readAll);
+            foreach (var npc in npcs)
+            {
+                var defaultJsonNpc = new DefaultPickpocketNpc(npc.levelRequired, npc.experience, npc.npcs, npc.rewards, npc.stunTimer,
+                    new Range(npc.stunDamage.min, npc.stunDamage.max));
+                MapPickpocketNpc(defaultJsonNpc);
+            }
         }
+        catch (Exception ex)
+        {
+            Log.Info(ex, "error happened");
+        }
+        
     }
     
     private static byte[] ReadResource(string name)
     {
         // Determine path
         var assembly = Assembly.GetExecutingAssembly();
+        string[] files = assembly.GetManifestResourceNames();
         string fileName = assembly.GetManifestResourceNames()
             .SingleOrDefault(e => e.Contains(name));
         using Stream stream = assembly.GetManifestResourceStream(fileName);

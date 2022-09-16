@@ -1,31 +1,42 @@
 [
   {
-    "npcs": [1, 2, 3, 4, 5, 6],
+    "npcs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
     "levelRequired": 1,
     "experience": 8,
     "stunTimer": 8,
     "stunDamage": {
-      "min": 1, "max": 1
+      "min": 1,
+      "max": 1
     },
     "rewards": [
       {
-        "id": 995,
-        "amount": 100
+        "Id": 995,
+        "Amount": 100
       }
     ]
   },
   {
-    "npcs": [7],
+    "npcs": [
+      7
+    ],
     "levelRequired": 2,
     "experience": 8,
     "stunTimer": 8,
     "stunDamage": {
-      "min": 1, "max": 1
+      "min": 1,
+      "max": 1
     },
     "rewards": [
       {
-        "id": 995,
-        "amount": 100
+        "Id": 995,
+        "Amount": 100
       }
     ]
   }
