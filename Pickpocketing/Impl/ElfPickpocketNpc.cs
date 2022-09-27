@@ -1,5 +1,5 @@
 using System;
-using AresFramework.Model.Entity;
+using AresFramework.Model.Entities.Players;
 using AresFramework.Model.Items;
 using JetBrains.Annotations;
 
@@ -28,7 +28,7 @@ public class ElfPickpocketNpc : IPickpocketNpc
                 player.SendMessage("You need to be called optimum to thiev this npc");
                 return false;
             }
-
+            
             return true;
         };
     }

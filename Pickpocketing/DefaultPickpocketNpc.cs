@@ -1,5 +1,5 @@
 using System;
-using AresFramework.Model.Entity;
+using AresFramework.Model.Entities.Players;
 using AresFramework.Model.Items;
 
 namespace AresFramework.Plugins.Thieving.Pickpocketing;

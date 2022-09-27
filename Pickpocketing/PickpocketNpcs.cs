@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using AresFramework.Model.Entity;
-using AresFramework.Model.Entity.Skills;
+using AresFramework.Model.Entities.Npcs;
+using AresFramework.Model.Entities.Players;
+using AresFramework.Model.Entities.Skills;
 using Newtonsoft.Json;
 using NLog;
-using YamlDotNet.Serialization.NamingConventions;
 
 namespace AresFramework.Plugins.Thieving.Pickpocketing;
 
@@ -23,8 +23,11 @@ public static class PickpocketNpcs
     /// </summary>
     /// <param name="npcId"></param>
     /// <returns></returns>
-    public static bool Pickpocket(Player player, int npcId)
+    public static bool Pickpocket(Player player, Npc npc)
     {
+
+        var npcId = npc.Id;
+        
         PickpocketingNpcs.TryGetValue(npcId, out var pickpocketNpc);
         
         if (pickpocketNpc == null)
@@ -46,6 +49,20 @@ public static class PickpocketNpcs
             return false;
         }
 
+        
+        // Random chance here
+        // TODO: real formula
+        var successRandom = new Random().Next(1, 5);
+        if (successRandom == 1)
+        {
+            var rndDamage = new Random().Next(
+                pickpocketNpc.StunDamage().Start.Value, 
+                pickpocketNpc.StunDamage().End.Value);
+            player.SendMessage($"You failed to pickpocket the {npc.DefinitionOrDefault().Name}.");
+            return true;
+        }
+        
+        // Success
         double experienceGained = pickpocketNpc.Experience();
         player.SkillSet.AddExperience(Skill.Thieving, experienceGained);
         player.SendMessage("You successfully pickpocket the {npcName}");
@@ -84,7 +101,6 @@ public static class PickpocketNpcs
         {
             Log.Info(ex, "error happened");
         }
-        
     }
     
     private static byte[] ReadResource(string name)

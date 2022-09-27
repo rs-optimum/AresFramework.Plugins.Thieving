@@ -1,17 +1,17 @@
 using System.Linq;
-using AresFramework.Model.Entity.Action.Interactions.Npcs;
+using AresFramework.Model.Plugins.Entities.Npcs.Interactions;
 using AresFramework.Plugins.Thieving.Pickpocketing;
 
 namespace AresFramework.Plugins.Thieving.Actions;
 
-public class PickpocketingNpcsAction : NpcInteractionAction
+public class PickpocketingNpcsAction : NpcInteractionsPlugin
 {
     
     public override void BuildInteractions()
     {
         Map("pickpocket", (player, npc, option) =>
         {
-            PickpocketNpcs.Pickpocket(player, npc.Id);
+            PickpocketNpcs.Pickpocket(player, npc);
         });
     }
     
